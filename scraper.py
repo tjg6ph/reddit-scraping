@@ -9,7 +9,7 @@ reddit = praw.Reddit(client_id=secret.client_id, \
                      username=secret.username, \
                      password=secret.password)
                      
-subreddit = reddit.subreddit('Vaporwave')
+subreddit = "Vaporwave"
 
 topics_dict = { "title":[], \
                 "score":[], \
@@ -18,7 +18,7 @@ topics_dict = { "title":[], \
                 "created": [], \
                 "body":[]}
 
-for submission in subreddit.top(limit=5):
+for submission in reddit.subreddit(subreddit).submissions(start=1341633600, end=1357016399):
     topics_dict["title"].append(submission.title)
     topics_dict["score"].append(submission.score)
     topics_dict["id"].append(submission.id)
