@@ -18,7 +18,7 @@ topics_dict = { "title":[], \
                 "created": [], \
                 "body":[]}
 
-for submission in reddit.subreddit(subreddit).submissions(start=1341633600, end=1357016399):
+for submission in reddit.subreddit(subreddit).top:
     topics_dict["title"].append(submission.title)
     topics_dict["score"].append(submission.score)
     topics_dict["id"].append(submission.id)
