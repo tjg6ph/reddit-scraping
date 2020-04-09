@@ -22,7 +22,7 @@ def parse_urls_from_csv(csv_file='posts_master.csv'):
     base_url = 'http://reddit.com'
     urls = []
 
-    with open(csv_file) as csv_in:
+    with open(csv_file, encoding="utf8") as csv_in:
         csv_reader = csv.reader(csv_in, delimiter=',')
         for row in list(csv_reader)[1:]:
             urls.append(base_url + row[7])
