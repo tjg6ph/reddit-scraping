@@ -31,8 +31,9 @@ def parse_urls_from_csv(csv_file='posts_master.csv'):
 
 urls = parse_urls_from_csv()
 comments = []
-for url in urls:    
-    submission = reddit.submission(url)
+for this_url in urls:
+    print(this_url)    
+    submission = reddit.submission(url=this_url)
     submission.comments.replace_more(limit=None)
     for comment in submission.comments.list():
         comments.append(comment.body)
