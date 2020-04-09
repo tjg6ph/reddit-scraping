@@ -30,12 +30,12 @@ def parse_urls_from_csv(csv_file='posts_master.csv'):
     return urls
 
 urls = parse_urls_from_csv()
-
-submission = reddit.submission(urls)
-submission.comments.replace_more(limit=None)
 comments = []
-for comment in submission.comments.list():
-    comments.append(comment.body)
+for url in urls:    
+    submission = reddit.submission(url)
+    submission.comments.replace_more(limit=None)
+    for comment in submission.comments.list():
+        comments.append(comment.body)
 
 comments = pd.DataFrame(comments)
 comments.to_csv('vaporcomments_v1.csv', index=False)
