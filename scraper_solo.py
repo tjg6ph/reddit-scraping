@@ -39,4 +39,5 @@ for this_url in urls:
         comments.append(comment.body)
 
 comments = pd.DataFrame(comments)
-comments.to_csv('vaporcomments_v1.csv', index=False)
+print(comments)
+comments.to_csv('vaporcomments_v1.csv', mode='w', index=False)
